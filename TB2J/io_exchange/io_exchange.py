@@ -381,6 +381,7 @@ Generation time: {now.strftime("%y/%m/%d %H:%M:%S")}
         self.write_tom_format(path=os.path.join(path, "TomASD"))
         self.write_vampire(path=os.path.join(path, "Vampire"))
         self.plot_all(savefile=os.path.join(path, "JvsR.pdf"))
+        self.write_umpdss(path=os.path.join(path, "UMPDSS/input"))
         # self.write_Jq(kmesh=[9, 9, 9], path=path)
 
     def write_txt(self, *args, **kwargs):
@@ -545,6 +546,11 @@ Generation time: {now.strftime("%y/%m/%d %H:%M:%S")}
         from TB2J.io_exchange.io_uppasd import write_uppasd
 
         write_uppasd(self, path=path)
+    
+    def write_umpdss(self, path):
+        from TB2J.io_exchange.io_umpdss import write_umpdss
+
+        write_umpdss(self, path=path)
 
 
 def gen_distance_dict(ind_mag_atoms, atoms, Rlist):
